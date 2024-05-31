@@ -1,5 +1,4 @@
-FROM tomcat 
-WORKDIR webapps 
-COPY target/WebApp.war .
-RUN rm -rf ROOT && mv WebApp.war ROOT.war
-ENTRYPOINT ["sh", "/usr/local/tomcat/bin/startup.sh"]
+FROM node:14-alpine3.12
+COPY . .
+EXPOSE 4000
+CMD ["node","index.js"]
